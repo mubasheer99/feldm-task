@@ -42,7 +42,7 @@ class Tasks:
         result = df[df['revenue'] == max_revenue]
         blankindex = [''] * len(result)
         result.index = blankindex
-        print(f"The maximum revenue by mobile device happened on {result['revenue_date'].to_string(header=False).strip()} and the revenue was {result['revenue'].to_string(header=False).strip()}")
+        print(f"The most  revenue by mobile device happened on {result['revenue_date'].to_string(header=False).strip()} and the revenue was {result['revenue'].to_string(header=False).strip()}")
         return result['revenue_date'].to_string(header=False).strip()
 
     def task3(self, **query):

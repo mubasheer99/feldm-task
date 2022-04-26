@@ -11,12 +11,14 @@ All the dependency available in requirements.txt file
 ```bash
 pip install -r requirements.txt
 ```
+[📖 **More Information**](./info.md)
+
 
 How to Use This
 -------------------
 
 
-1. Create an  virtual environment using 
+1. Create a virtual environment using 
 ```
 python3 -m venv
 ```
@@ -46,10 +48,15 @@ An api interface provided using FastAPI and can be run with below command
 uvicorn api.apidevice:app --reload
 ```
 
-check api response
+Check api response
 -----------------------------
 http://127.0.0.1:8000/docs
 
+
+#Test Results
+![](testresult.png)
+
+![](taskresults.png)
 
 
 
@@ -61,3 +68,8 @@ Please make sure to update tests as appropriate.
 
 ## License
 License file is available in root LICENSE.txt
+
+## Out Of Scope
+1. makefile and setup.py files are not up-to-date and build is not in the scope of this project
+2. logging module is imported but not implemented as not in scope
+

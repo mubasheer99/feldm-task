@@ -45,7 +45,7 @@ class TestTask(unittest.TestCase):
         result = tasklist.task2(config.task2_query)
         print(result)
 
-        self.assertEqual(result, '2019-09-20 00:00:00')
+        self.assertEqual(result, '2019-09-15 00:00:00')
         conn.close()
 
 

@@ -20,7 +20,7 @@ task1_query = r'''with revenue as
                 select * from revenue
                 where revenue >=(select max(revenue) from revenue)'''
 
-task2_query = r'''select t.datetime revenue_date,max(revenue) revenue from devices d,Transactions t
+task2_query = r'''select t.datetime revenue_date,sum(revenue) revenue from devices d,Transactions t
                 where d.id=t.device_type and d.device_name='Mobile Phone'
                 group by t.datetime order by 2 desc'''
 
