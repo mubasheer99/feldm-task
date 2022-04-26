@@ -1,7 +1,7 @@
 #  File        : config.py
 #  Project     : FELDM
 #  Author      : MM
-#  Description : contains teh configuration details of teh project
+#  Description : contains teh configuration details of the  project
 ######################################################################
 #  Changelog :
 #  23.04.2022   MM  : initial definition of  config file
@@ -11,6 +11,7 @@ xpath_variable = '//*[@currency]'
 curr_to_convert = 'USD'
 XML_path = 'eurofxref-hist-90d.xml'
 xpath_root_variable = ['gesmes:Envelope', 'Cube']
+log_file = 'log.txt'
 
 task1_query = r'''with revenue as
                 (select  visitor_id ,max(total_revenue) revenue FROM

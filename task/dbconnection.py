@@ -1,15 +1,22 @@
+#  File        : dbconnection.py
+#  Project     : FELDM
+#  Author      : MM
+#  Description : Module for  different Database connections
+######################################################################
+#  Changelog :
+#  23.04.2022   MM  : initial definition of  currencyconverter file
+############################################################################
 import sqlite3
 from sqlite3 import Error
 import psycopg2
 from configparser import ConfigParser
 
 
-
 def create_sqlliteconnection(db_file):
     """ create a database connection to the SQLite database
         specified by the db_file
-    :param db_file: database file
-    :return: Connection object or None
+        :param db_file: database file location
+        :return: Connection object or None
     """
     conn = None
 
@@ -23,6 +30,12 @@ def create_sqlliteconnection(db_file):
 
 
 def config(section='postgresql', filename='.env'):
+    """ configuration to connect to get db connection params
+        specified by the db_file
+        :param section: section in the .env file
+        :param filename: filename to look for connection details
+        :return: Connection object or None
+    """
     # create a parser
     parser = ConfigParser()
     # read config file
@@ -41,7 +54,11 @@ def config(section='postgresql', filename='.env'):
 
 
 def create_pgconnection(section):
-    """ Connect to the PostgreSQL database server """
+    """ create a database connection to the PostgreSQL database
+        specified by the db_file
+        :param section: section in the .env file
+        :return: Connection object or None
+    """
     conn = None
     try:
         # read connection parameters
@@ -58,6 +75,11 @@ def create_pgconnection(section):
 
 
 def connect_with_sqlalchemy(db_url):
+    """ create a database connection to the PostgreSQL database
+        specified by the db_file
+        :param db_url: database file location
+        :return: Connection object or None
+    """
 
     connection = None
     try:

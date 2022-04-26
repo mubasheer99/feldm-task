@@ -1,18 +1,25 @@
+#  File        : apidevice.py
+#  Project     : FELDM
+#  Author      : MM
+#  Description : API module to get the Device info from Devices table
+######################################################################
+#  Changelog :
+#  24.04.2022   MM  : initial definition of  apidevice file
+############################################################################
 from fastapi import FastAPI, Depends
 from pydantic import BaseModel
 from typing import Optional, List
-import sqlalchemy as db
 from sqlalchemy import create_engine
 from sqlalchemy.orm import declarative_base, sessionmaker, Session
 from sqlalchemy import Boolean, Column, Float, String, Integer
 from dotenv import load_dotenv
 import os
 
+# load the environmental variable from .env file
 load_dotenv()
-
-
 database_alchemy = os.environ.get('SQLALCHEMY_DATABASE_URL')
 
+# create the instance of FastAPI
 app = FastAPI()
 
 # SqlAlchemy Setup
@@ -20,8 +27,9 @@ app = FastAPI()
 engine = create_engine(database_alchemy, echo=True, future=True)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
-#metadata = db.MetaData()
-#devices = db.Table('devices', metadata, autoload=True, autoload_with=engine)
+
+# metadata = db.MetaData()
+# devices = db.Table('devices', metadata, autoload=True, autoload_with=engine)
 
 
 def get_db():
@@ -61,18 +69,18 @@ def get_devices(db: Session):
     return db.query(DBDevices).all()
 
 
-# Routes for interacting with the API
-
+# Routes for interacting with the API get all device information
 @app.get('/devices/', response_model=List[Device])
 def get_devices_view(db: Session = Depends(get_db)):
     return get_devices(db)
 
 
+# Routes for interacting with the API get device information for particular device_id
 @app.get('/device/{device_id}')
 def get_device_view(device_id: int, db: Session = Depends(get_db)):
     return get_device(db, device_id)
 
-
+# Just to say Hello
 @app.get('/')
 async def root():
     return {'FELDM': 'Hello FELDM!'}
