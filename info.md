@@ -1,4 +1,4 @@
-# Information on the task performed
+# Information on the tasks performed
 
 I have used different approaches to perform the tasks.
 
@@ -19,9 +19,9 @@ I have used different approaches to perform the tasks.
  | task/dbconnection.py | different methods to connect to the database                        |
 
 
-2. Db connection are performed via different way used db specific connection and sqlalchemy
-3. As I love TDD unittest are carted and run for first 2 tasks.
-4. A sample API via FastAPI is done which uis not part of teh requirement some values add.
-5. Changelog captured in each file and docstring provided for each package implementation.
+2. Db connections are performed via different ways using db specific connection and sqlalchemy
+3. As I love TDD unittest are created and run for the first 2 tasks.
+4. A sample API via FastAPI is done which is not part of the requirement just to add some value to the task
+5. Changelog captured in each file and docstring provided for each function implementation.
 
 
