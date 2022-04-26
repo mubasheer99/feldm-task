@@ -4,7 +4,7 @@
 #  Description : contains the  unittest performed on 2 tasks
 ######################################################################
 #  Changelog :
-#  25.04.2022   MM  : initial definition of  config file
+#  25.04.2022   MM  : initial definition of  test file
 ############################################################################
 import unittest
 import os

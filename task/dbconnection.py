@@ -4,7 +4,7 @@
 #  Description : Module for  different Database connections
 ######################################################################
 #  Changelog :
-#  23.04.2022   MM  : initial definition of  currencyconverter file
+#  23.04.2022   MM  : initial definition of  dbconnection file
 ############################################################################
 import sqlite3
 from sqlite3 import Error
