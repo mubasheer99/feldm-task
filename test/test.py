@@ -30,8 +30,8 @@ class TestTask(unittest.TestCase):
         conn = dbconnection.create_sqlliteconnection(database)
 
         tasklist = tasks.Tasks(conn)
-        result = tasklist.task1(config.task1_query)
-        #print(result)
+        result = tasklist.task1(config.task1_most_revenue_user)
+        print(result)
 
         self.assertEqual(result, 5733.5124)
         conn.close()
@@ -42,7 +42,7 @@ class TestTask(unittest.TestCase):
         conn = dbconnection.create_sqlliteconnection(database)
 
         tasklist = tasks.Tasks(conn)
-        result = tasklist.task2(config.task2_query)
+        result = tasklist.task2(config.task2_most_revenue_day)
         print(result)
 
         self.assertEqual(result, '2019-09-15 00:00:00')

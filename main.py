@@ -38,35 +38,35 @@ def main():
 
     # create an instance of Task class
     tasklist = tasks.Tasks(conn)
-    print('............starting task1....................')
-    tasklist.task1(config.task1_query)
-    print('............completed task1...................')
+    print('............starting task1:Visitor with Highest Revenue....................')
+    tasklist.task1(config.task1_most_revenue_user)
+    print('............completed task1:Visitor with Highest Revenue...................')
 
-    print('............starting task2....................')
-    tasklist.task2(config.task2_query)
-    print('............completed task2...................')
+    print('............starting task2:Date with Highest Revenue....................')
+    tasklist.task2(config.task2_most_revenue_day)
+    print('............completed task2:Date with Highest Revenue...................')
 
-    print('............starting task3....................')
-    tasklist.task3(**config.task3_query)
+    print('............starting task3:Combine devices and transactions....................')
+    tasklist.task3(**config.task3_combine_tables)
     print('.........completed task3 check the file combine_data.xlsx in the root......')
 
-    print('............starting task4....................')
+    print('............starting task4:Update revenue to EUR....................')
     tasklist.task4_current(conversion_rate)
-    print('............completed task4...................')
+    print('............completed task4:Update revenue to EUR...................')
 
     print('...........starting task4 with historical data.........')
-    tasklist.task4_historical(historical_data, **config.task3_query)
+    tasklist.task4_historical(historical_data, **config.task3_combine_tables)
     print('............completed task4 with historical data check combine_histdata.xlsx file......')
     # close the DB connection
     conn.close()
 
-    print('..................starting task5...............')
+    print('..................starting task5:Postgressql connection...............')
     # create a postgress  database connection
     pgdb = dbconnection.create_pgconnection('postgresql')
     # create an instance of Task class
     pgtask = tasks.Tasks(pgdb)
-    pgtask.task5(**config.task5_query)
-    print('..................completed task5..............')
+    pgtask.task5(**config.task5_create_insert_table)
+    print('..................completed task5:Postgressql connection..............')
     # close the DB connection
     pgdb.close()
 
